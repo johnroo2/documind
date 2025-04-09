@@ -1,0 +1,1 @@
+nextjs + prisma/sqlite + flask app with some very inefficient sql queries

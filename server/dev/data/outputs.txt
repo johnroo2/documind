@@ -1,0 +1,386 @@
+--- PAGE 1 ---
+ISDA
+Safe.
+Efficient
+Markets
+International Swaps and Derivatives Association, Inc.
+CANADIAN REPRESENTATION LETTER #1
+TRADE REPORTING AND OTHER OBLIGATIONS
+published on April 23, 2014
+by the International Swaps and Derivatives Association, Inc.
+Terms We Use in This Letter:
+Canadian Person, with respect to a jurisdiction in Canada, means a person or
+company, that is not an individual, that is organized under the laws of, has its head
+office in or has its principal place of business in the jurisdiction. For this purpose,
+"person" includes unincorporated organizations such as partnerships, associations,
+syndicates and trusts, "company" includes any incorporated entity, and
+"jurisdiction" means a province or territory of Canada or, with respect to
+jurisdiction of organization only, the federal jurisdiction of Canada.
+Canadian Regulator means a Canadian provincial, territorial, federal or national
+regulatory authority, body or agency with jurisdiction to regulate derivatives
+activities or to regulate persons with respect to their derivatives activities, including
+the Office of the Superintendent of Financial Institutions with respect to the
+activities of federally regulated financial institutions.
+Canadian Regulatory Requirements means Canadian Reporting Requirements
+and Other Derivatives Rules.
+Canadian Reporting Requirements means any applicable laws, rules, regulations,
+instruments, orders or directives that mandate reporting and/or retention of
+transaction and similar information issued by any Canadian Regulator, including
+the TR Rules.
+Dealer means a "dealer" as defined under the Derivatives Act (Québec) or a
+"derivatives dealer" as defined under the TR Rules.
+Copyright @ 2014 by International Swaps and Derivatives Association, Inc.
+--- PAGE 2 ---
+Derivative means a derivative as defined in the securities or derivatives legislation,
+rules or regulations of a relevant Canadian jurisdiction, that is not excluded from
+the definition by reason of any rule or order of the relevant Canadian Regulator.
+Non-Canadian Regulator means any regulatory authority, body or agency with
+jurisdiction to regulate trade reporting with respect to derivatives activities or to
+regulate persons with respect to trade reporting in connection with their derivatives
+activities (including without limitation, the U.S. Commodity Futures Trading
+Commission or other U.S. regulators in the case of trade reporting under applicable
+U.S. laws, and the European Securities and Markets Authority and national
+regulators in the E.U. under the E.U. Regulation No. 648/2012 on OTC derivatives,
+central counterparties and trade repositories in the case of trade reporting under
+applicable E.U. laws).
+Non-Canadian Reporting Requirements means any applicable laws, rules,
+regulations, instruments, orders or directives that mandate reporting and/or
+retention of transaction and similar information issued by any Non-Canadian
+Regulator.
+Other Derivatives Rules means laws, rules, regulations and instruments of
+Canadian Regulators with respect to Derivatives that include a substantially similar
+definition of "local counterparty" to that in the TR Rules or other definitions to
+which the representations or covenants made in this letter would be directly
+relevant.
+Reporting Party Rules means the Canadian Transaction Reporting Party
+Requirements published by ISDA as they may be replaced, amended or
+supplemented from time to time.
+Rule 91-507 means OSC and MSC Rule 91-507: Trade Repositories and
+Derivatives Data Reporting and AMF Regulation 91-507 respecting Trade
+Repositories and Derivatives Data Reporting.
+1
+At the date of publication of this form of representation letter, the following provinces have adopted a definition of
+"derivative" - Ontario (Securities Act, s.1(1)), Manitoba (Securities Act, s.1(1)) , and Québec (Derivatives Act, s.3).
+The meaning of the term "derivative" under the Ontario and Manitoba Securities Acts is "an option, swap, futures
+contract, forward contract or other financial or commodity contract or instrument whose market price, value, delivery
+obligations, payment obligations or settlement obligations are derived from, reference to or based on an underlying
+interest (including a value, price, rate, variable, index, event, probability or thing).". The meaning of derivative under
+the Québec Derivatives Act is " an option, a swap, a futures contract, a contract for difference or any other contract or
+instrument whose market price, value, or delivery or payment obligations are derived from, referenced to or based on
+an underlying interest, or any other contract or instrument designated by regulation or considered equivalent to a
+derivative on the basis of criteria determined by regulation".
+6216374 v3
+2
+--- PAGE 3 ---
+TR Rules means Rule 91-507 and equivalent rules, regulations, instruments,
+directives or orders when finalized by any Canadian Regulator.
+Transaction means the entering into, assigning, selling or otherwise acquiring or
+disposing of a Derivative or the novation of a Derivative.
+Introduction
+The Ontario Securities Commission (OSC), the Manitoba Securities Commission (MSC)
+and the Autorité des marchés financiers (AMF), respectively, published Rule 91-507
+requiring "reporting counterparties" to report certain derivatives data to "designated" or
+"recognized" trade repositories2 with respect to transactions involving "local
+counterparties". The OSC, MSC and AMF have also published companion policies. In
+these three jurisdictions, for trades involving a "clearing agency" or a Dealer, trade
+reporting begins on October 31, 2014 and, for trades that do not involve such entities, on
+June 30, 2015. The securities regulatory authorities in certain of the remaining provinces of
+Canada have indicated their intention to introduce substantially identical rules by way of a
+multi-lateral instrument.3 Canadian federally regulated financial institutions may become
+subject to similar federal or national rules, orders or directives.
+It is anticipated that other rules and instruments to be published and finalized by Canadian
+Regulators with respect to Derivatives will include a substantially equivalent definition of
+"local counterparty" to that in the TR Rules.
+This letter allows you to provide information needed to assess how Canadian Regulatory
+Requirements do or may apply to Transactions between us.
+Please consider each of the five parts of this letter set out below.
+I.
+Local Counterparty Representations
+Instructions: Please make the representations in either 1(A) or (B) and either 2(A)
+or (B).
+1. Jurisdiction of Organization, Head Office and Principal Place of Business
+(A) Canadian Person
+We hereby represent that we are a Canadian Person with respect to the
+jurisdiction(s) indicated below:
+2
+The terminology in Québec is "recognized" and in Ontario and Manitoba is "designated".
+3
+The territorial governments, Prince Edward Island and Newfoundland and Labrador have not stated an
+intention in this regard.
+6216374 v3
+3
+--- PAGE 4 ---
+Instructions: Jurisdiction of organization, head office and principal
+place of business4 could be in the same or different jurisdictions. Select
+all that apply.
+Prince Edward Island
+Canada5
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Nova Scotia
+Ontario
+Québec
+Saskatchewan
+Yukon
+Northwest Territories
+Nunavut
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into such Transaction.
+(B) Not A Canadian Person
+We hereby represent that we are not a Canadian Person with respect to any
+jurisdiction of Canada.
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into such Transaction.
+2. Registered to Trade Derivatives
+Instructions: Select (A) if you are not a registered Dealer; select (B) if you are.
+(A)Not Registered To Trade
+4
+Principal place of business refers to your principal place of business as a whole and not the principal place
+of your derivatives business.
+5
+Applies with respect to federally incorporated companies or entities organized under federal law. If you are
+such an entity, local counterparty status for purposes of provincial or territorial Canadian Regulatory
+Requirements, if applicable, will be determined on the basis of location of your head office and/ or principal
+place of business.
+6216374 v3
+4
+--- PAGE 5 ---
+We hereby represent that, under securities or derivatives laws, we are not
+registered as a Dealer, or in an alternative category6 as a consequence of
+trading in Derivatives, in any jurisdiction in Canada.
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into the Transaction.
+(B) Registered to Trade
+We hereby represent that, under securities or derivatives laws, we are
+registered as a Dealer, or in an alternative category as a consequence of
+trading in Derivatives, in the following specified jurisdictions:
+Instructions: Select any that apply.7
+Canada8
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Nova Scotia
+Ontario
+Prince Edward Island
+Québec
+Saskatchewan
+Yukon
+Northwest Territories
+Nunavut
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into the Transaction.
+II.
+Additional Representations for Local Counterparty Determination
+Instructions: Please select one of representation (A) or (B) below.
+6
+The reference to registration in an alternate category includes reference to registration as a large derivative
+participant. This regime is not yet in place in any jurisdiction.
+7
+The option to select any jurisdiction in which dealer registration rules are not yet in effect will become
+available as these rules are brought into effect.
+8
+This will be relevant to any federal or national Canadian Regulatory Requirements.
+6216374 v3
+5
+--- PAGE 6 ---
+This information is needed because the TR Rules do (and the Other
+Derivatives Rules may) apply to Transactions with you if you are not a
+Canadian Person in a particular jurisdiction, but are an affiliate of a Canadian
+Person with respect to that jurisdiction and that Canadian Person is
+responsible generally for your liabilities. A Canadian Person may be
+responsible for your liabilities if it has guaranteed all or substantially all of
+your liabilities (not only your liabilities under Transactions between us). If
+you are an unlimited liability company affiliated with a Canadian Person you
+may have to consider whether your shareholder is responsible for your
+liabilities.
+(A)We Are Not an Affiliate of a Responsible Canadian Person
+We hereby represent that we reasonably believe that no Canadian Person
+that is our affiliate is responsible for our liabilities.
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into such Transaction.
+(B) We Are An Affiliate of a Responsible Canadian Person.
+We hereby represent that we reasonably believe that a Canadian Person with
+respect to the jurisdiction(s) specified below, that is our affiliate, is
+responsible for our liabilities.
+Instructions: You may be required to select more than one jurisdiction.
+If any affiliated Canadian Person responsible for your liabilities is
+incorporated or organized under the federal laws of Canada or of a
+province or territory, select Canada or that province or territory, as
+applicable. In addition, if such person or company has its head office
+and/or principal place of business in a different province or territory,
+also select that jurisdiction or those jurisdictions. If there is more than
+one such affiliated entity, select the relevant jurisdiction for each of
+such entities.
+Canada9
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Nova Scotia
+9
+Applies with respect to federally incorporated companies or entities organized under federal law and will
+be relevant with respect to any federal or national Canadian Regulatory Requirements.
+6216374 v3
+6
+--- PAGE 7 ---
+Ontario
+Prince Edward Island
+Québec
+Saskatchewan
+Yukon
+Northwest Territories
+Nunavut
+This representation shall be deemed repeated each time we enter into a
+Transaction with you unless we have notified you to the contrary in a timely
+manner in writing prior to entering into such Transaction.
+III. Consent to Disclosure to Regulators and Trade Repositories
+Instructions: By executing this letter you indicate your consent to the
+disclosure of information in accordance with the Canadian Reporting
+Requirements. If you select the box labelled "All Reporting
+Requirements" you indicate your additional consent to disclosure in
+accordance with Non-Canadian Regulatory Requirements.
+For purposes of this consent, "Reporting Requirements" means any Canadian
+Reporting Requirements and, if "All Reporting Requirements" is selected, it
+means any Canadian Reporting Requirements and any Non-Canadian
+Reporting Requirements, and "Regulator" means any Canadian Regulator and,
+if "All Reporting Requirements" is selected, it means any Canadian Regulator
+and any Non-Canadian Regulator.
+All Reporting Requirements
+Notwithstanding anything to the contrary in any non-disclosure, confidentiality
+or other agreement between us and any other party, we hereby consent to the
+disclosure of information:
+(a) to the extent required by Reporting Requirements in accordance
+with which the other party is required to act; or
+(b) to and between the other party's head office, branches or affiliates,
+or any persons or entities who provide services to such other party or its
+head office, branches or affiliates, in each case, in connection with such
+Reporting Requirements.
+We acknowledge that pursuant to global regulatory reform initiatives,
+regulators require reporting of trade data to increase market transparency and
+6216374 v3
+7
+--- PAGE 8 ---
+enable regulators to monitor systemic risk to ensure safeguards are
+implemented globally.
+We further acknowledge that disclosures made pursuant hereto may include,
+without limitation, the disclosure of trade information including a party's
+identity (by name, address, corporate affiliation, identifier or otherwise) to any
+swap or trade data repository or one or more systems or services operated by
+any trade repository (TR) and any relevant Regulators, and that such
+disclosures could result in certain anonymous swap transaction and pricing
+data becoming available to the public. We further acknowledge that, for
+purposes of complying with regulatory reporting obligations, a party may use a
+third party service provider to transfer trade information into a TR and that a
+TR may engage the services of a global trade repository regulated by one or
+more governmental regulators. We also acknowledge that disclosures made
+pursuant hereto may be made to recipients in a jurisdiction other than that of
+the disclosing party or a jurisdiction that may not necessarily provide an
+equivalent or adequate level of protection for personal data as our home
+jurisdiction. For the avoidance of doubt, (i) to the extent that applicable non-
+disclosure, confidentiality, bank secrecy, data privacy or other law imposes
+non-disclosure requirements on transaction and similar information required or
+permitted to be disclosed as contemplated herein but permits a party to waive
+such requirements by consent, the consent and acknowledgements provided
+herein shall be a consent by us for purposes of such law; (ii) any agreement
+between us and another party to maintain confidentiality of information
+contained in any agreement between us and the other party or in any non-
+disclosure, confidentiality or other agreement shall continue to apply to the
+extent that such agreement is not inconsistent with the disclosure of
+information in connection with the Reporting Requirements as set out herein;
+and (iii) nothing herein is intended to limit the scope of any other consent to
+disclosure separately given by us to another party.
+We represent and warrant that any third party to whom we owe a duty of
+confidence in respect of the information disclosed has consented to the
+disclosure of that information.
+IV. Additional Covenant Re Reporting Responsibility
+Instructions: If you are a Registered Dealer in a jurisdiction you do not have to
+select that jurisdiction in answering this question as you will be a Dealer for
+purposes of the Canadian Reporting Requirements in that jurisdiction by
+virtue of the registration. Canadian Reporting Requirements apply to Dealers
+even if they are not Registered Dealers in the jurisdiction. You may elect to
+6216374 v3
+8
+--- PAGE 9 ---
+provide this covenant if you are a Dealer in the specified jurisdictions10 or if
+you are not or may not be a Dealer in the specified jurisdictions, but you are
+nevertheless prepared to report the transaction data and accept the other
+obligations of a reporting counterparty as if you were a Dealer in that
+jurisdiction. If both you and your counterparty agree to the Reporting Party
+Rules by selecting the covenant in Part V or otherwise, whether or not you will
+be the reporting counterparty on the basis of this Part IV covenant will be
+determined by the Reporting Party Rules.
+For purposes of the Canadian Reporting Requirements of the jurisdictions specified
+below, and for those purposes only, we hereby agree to report as if we were a
+Dealer:
+Canada
+11
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Nova Scotia
+Ontario
+Prince Edward Island
+Québec
+Saskatchewan
+Yukon
+Northwest Territories
+Nunavut
+This covenant is not a representation that we are a Dealer in any of the above
+selected jurisdictions.
+V. Agreements regarding Reporting Party Rules
+Instructions: If you are potentially a reporting party under Canadian Reporting
+Requirements, select (A) to agree to be within the Dealer category in the
+Reporting Party Rules and to agree to the Reporting Party Rules.
+If you do not select (A), you may select (B) to agree to the process in the
+Reporting Party Rules for determining the counterparty that will report
+transaction data in situations where both parties have a reporting obligation.
+You will not, however, be a Dealer for purposes of the Reporting Party Rules
+10
+Guidance as to what activities constitute the business of trading in derivatives may be found in Canadian
+Securities Administrators Consultation Paper 91-407 Derivatives Registration.
+11
+This selection will be relevant with respect to federal or national Canadian Regulatory Requirements, if
+applicable.
+6216374 v3
+9
+--- PAGE 10 ---
+unless you have made the representation in I.2(B), you otherwise establish that
+you are a Registered Dealer or a Dealer or you select (A) below.
+(A)
+Deemed Dealer for Reporting Party Rules
+We agree to be deemed to be a Dealer for the purpose of the Reporting Party
+Rules and agree to the process set out in the Reporting Party Rules, unless we
+have agreed to a different method of determining the reporting counterparty in
+any other agreement with you.
+(B)
+Agreement to Reporting Party Rules
+We agree to the process set out in the Reporting Party Rules, unless we have
+agreed to a different method of determining the reporting counterparty in any
+other agreement with you.
+Executed and delivered with effect from the date first written above:
+China CITIC Bank International Limited
+LEI/CICI: 54930034UPFJVONHXV95
+By:
+6hay.
+Name: Elsa Yuen
+Title: O&T, Treasury & Markets Operations
+Email: elsams_yuen@cncbinternational.com
+By:
+Name: Anthony Chan
+Title: Head of Business Management, Treasury & Markets
+Email: anthonyjy_chan@cncbinternational.com
+6216374 v3
+10

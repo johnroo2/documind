@@ -58,7 +58,7 @@ class DocumentAnalyzer:
         words.extend([file_name for _ in range(5)])
         words.extend([file_name.upper() for _ in range(2)])
 
-        for i in range(10):
+        for i in range(random.randint(8, 25)):
             res.append(ParsingBlock(block_type="page", block_text=f"----- PAGE {str(i + 1)} -----"))
 
             for j in range(random.randint(20, 80)):

@@ -11,8 +11,8 @@ import {
 	PaginationContent,
 	PaginationItem,
 	PaginationLink,
-	PaginationPrevious,
 	PaginationNext,
+	PaginationPrevious
 } from '@/components/ui/pagination';
 import { BaseProps } from '@/pages/_app';
 import documentService from '@/services/documentService';
@@ -63,6 +63,55 @@ export default function DocumentView({ user }: BaseProps) {
 		setCurrentPage(pageIndex);
 	};
 
+	const renderPaginationItems = () => {
+		if (!document) return null;
+
+		const totalPages = document.data.pages.length;
+
+		if (totalPages <= 7) {
+			return document.data.pages.map((_, index) => (
+				<PaginationItem key={index}>
+					<PaginationLink
+						isActive={index === currentPage}
+						onClick={() => handlePageChange(index)}
+					>
+						{index + 1}
+					</PaginationLink>
+				</PaginationItem>
+			));
+		}
+
+		const items = [];
+
+		let startIdx, endIdx;
+
+		if (currentPage < 3) {
+			startIdx = 0;
+			endIdx = 6;
+		} else if (currentPage > totalPages - 4) {
+			startIdx = totalPages - 7;
+			endIdx = totalPages - 1;
+		} else {
+			startIdx = currentPage - 3;
+			endIdx = currentPage + 3;
+		}
+
+		for (let i = startIdx; i <= endIdx; i++) {
+			items.push(
+				<PaginationItem key={i}>
+					<PaginationLink
+						isActive={i === currentPage}
+						onClick={() => handlePageChange(i)}
+					>
+						{i + 1}
+					</PaginationLink>
+				</PaginationItem>
+			);
+		}
+
+		return items;
+	};
+
 	return (
 		<div className="relative h-full overflow-y-auto">
 			<div
@@ -88,8 +137,8 @@ export default function DocumentView({ user }: BaseProps) {
 						</div>
 						<div className="flex flex-col">
 							<h1 className="font-semibold text-lg">{document.name}</h1>
-							<p className="font-light text-xs">
-								{new Date(document.createdAt).toLocaleString('en-US')}
+							<p className="font-light text-sm">
+								{document.data.pages.length} {document.data.pages.length === 1 ? 'page' : 'pages'}, {new Date(document.createdAt).toLocaleString('en-US')}
 							</p>
 						</div>
 					</div>
@@ -123,16 +172,7 @@ export default function DocumentView({ user }: BaseProps) {
 									)
 								}
 							/>
-							{document.data.pages.map((_, index) => (
-								<PaginationItem key={index}>
-									<PaginationLink
-										isActive={index === currentPage}
-										onClick={() => handlePageChange(index)}
-									>
-										{index + 1}
-									</PaginationLink>
-								</PaginationItem>
-							))}
+							{renderPaginationItems()}
 							<PaginationNext
 								onClick={() =>
 									handlePageChange(

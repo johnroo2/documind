@@ -6,11 +6,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getPopulatedDocument, getPopulatedUser } from '@/lib/prisma-utils';
 import serverErrorHandler from '@/lib/serverErrorHandler';
 import verifyToken from '@/lib/verifyToken';
-import flaskClient from '@/services/flaskClient';
+import FlaskClient from '@/services/flaskClient';
 import { API_STATUS, APIError, VISIBILITY } from '@/types/general';
 import { UploadDocumentResponse } from '@/types/server';
 
 const prisma = new PrismaClient();
+const flaskClient = new FlaskClient(process.env.FLASK_SERVER_URL as string, process.env.FLASK_SERVER_API_KEY as string);
 
 export const config = {
 	api: {

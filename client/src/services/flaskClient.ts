@@ -7,8 +7,11 @@ import { APIError } from '@/types/general';
 import { UploadFileResponse } from '@/types/server';
 
 class FlaskClient extends Service {
-	constructor(url: string) {
+	private apiKey: string;
+
+	constructor(url: string, apiKey: string) {
 		super(url);
+		this.apiKey = apiKey;
 	}
 
 	/**
@@ -22,11 +25,11 @@ class FlaskClient extends Service {
 			const fileData = await fs.promises.readFile(file.filepath);
 			const fileBlob = new Blob([fileData], { type: file.mimetype || 'application/octet-stream' });
 			formData.append('file', fileBlob, file.originalFilename || 'file');
-			return this.instance.post('/upload', formData);
+			return this.instance.post('/upload', formData, this.applyHeaders({
+				'Authorization': this.apiKey
+			}));
 		})();
 	}
 }
 
-const flaskClient = new FlaskClient(process.env.NEXT_PUBLIC_FLASK_CLIENT_URL as string);
-
-export default flaskClient;
+export default FlaskClient;

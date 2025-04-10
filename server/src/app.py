@@ -26,6 +26,14 @@ def index():
 def upload():
     try:
         log.debug("Received upload request")
+
+        auth_header = request.headers.get("Authorization")
+        if auth_header != dotenv.get_key(dotenv.find_dotenv(), "API_KEY"):
+            return jsonify({
+                "status": 401,
+                "message": "Unauthorized"
+            }), 401
+
         file = request.files['file']
         file_path = os.path.join(os.path.dirname(os.getcwd()), "tmp" if TEMP_FILES else "uploads", file.filename)
         file.save(file_path)

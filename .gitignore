@@ -24,6 +24,9 @@ client/prisma/*.sqlite3
 client/prisma/*.sqlite3-journal
 client/prisma/prisma-engines.zip
 
+server/uploads/*.pdf
+server/tmp/*.pdf
+
 .venv*
 .env*
 .cache*

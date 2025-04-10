@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import * as formidable from 'formidable';
+import * as fs from 'fs';
 
 import { Service } from '@/lib/serviceRoot';
 import { APIError } from '@/types/general';
@@ -16,9 +17,10 @@ class FlaskClient extends Service {
      * @returns {Promise<UploadFileResponse | AxiosError<APIError>>} The parsed response from the endpoint
      */
 	async uploadFile(file: formidable.File): Promise<UploadFileResponse | AxiosError<APIError>> {
-		return this.safeAxiosApply<UploadFileResponse>(() => {
+		return this.safeAxiosApply<UploadFileResponse>(async () => {
 			const formData = new FormData();
-			const fileBlob = new Blob([file.filepath], { type: file.mimetype || 'application/octet-stream' });
+			const fileData = await fs.promises.readFile(file.filepath);
+			const fileBlob = new Blob([fileData], { type: file.mimetype || 'application/octet-stream' });
 			formData.append('file', fileBlob, file.originalFilename || 'file');
 			return this.instance.post('/upload', formData);
 		})();

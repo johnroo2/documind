@@ -1,15 +1,18 @@
 import dotenv
-# import time
+import os
+
 from loguru import logger as log
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from doc_analysis import DocumentAnalyzer, ParsingBlock
+from doc_analysis import DocumentAnalyzer
 
 dotenv.load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+TEMP_FILES = True
 
 @app.route('/')
 def index():
@@ -24,26 +27,16 @@ def upload():
     try:
         log.debug("Received upload request")
         file = request.files['file']
-        document_analyzer = DocumentAnalyzer(dotenv.get_key(dotenv.find_dotenv(), "FR_ENDPOINT"), dotenv.get_key(dotenv.find_dotenv(), "FR_KEY"))
+        file_path = os.path.join(os.path.dirname(os.getcwd()), "tmp" if TEMP_FILES else "uploads", file.filename)
+        file.save(file_path)
 
-        analyze_result = document_analyzer.read_pdf(file)
+        document_analyzer = DocumentAnalyzer(dotenv.get_key(dotenv.find_dotenv(), "AZURE_FR_ENDPOINT"), dotenv.get_key(dotenv.find_dotenv(), "AZURE_FR_KEY"))
+
+        analyze_result = document_analyzer.read_pdf(file_path)
         parsed_result = document_analyzer.process_text(analyze_result)
-        
-        # time.sleep(5)
-        # parsed_result = []
-        # for i in range(1, 11):
-        #     parsed_result.append(ParsingBlock(
-        #         block_type="page",
-        #         block_text=f"----- PAGE {i} -----"
-        #     ))
-        #     parsed_result.append(ParsingBlock(
-        #         block_type="paragraph",
-        #         block_text=f"This is a test paragraph from page {i}"
-        #     ))
-        #     parsed_result.append(ParsingBlock(
-        #         block_type="paragraph",
-        #         block_text=f"This is another test paragraph from page {i}"
-        #     ))
+
+        if TEMP_FILES:
+            os.remove(file_path)
 
         res = jsonify({
             "status": 200, 

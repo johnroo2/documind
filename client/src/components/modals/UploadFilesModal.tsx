@@ -71,15 +71,15 @@ export default function UploadFilesModal({ open, onClose, user, setUser }: Uploa
 
 			const res = await documentService.uploadDocument(file.name, VISIBILITY.PRIVATE, file);
 
+			setLoadingMap(prev => {
+				const newMap = new Map(prev);
+
+				newMap.set(`${file.name}-${fileIndex}`, { loading: false, done: true, error: res instanceof AxiosError });
+
+				return newMap;
+			});
+
 			if (res instanceof AxiosError) {
-				setLoadingMap(prev => {
-					const newMap = new Map(prev);
-
-					newMap.set(`${file.name}-${fileIndex}`, { loading: false, done: true, error: true });
-
-					return newMap;
-				});
-
 				toast.error(`Error parsing document ${fileIndex + 1}`, {
 					description: res?.response?.data?.message || 'An unexpected error occured while attempting document parsing'
 				});
@@ -88,14 +88,6 @@ export default function UploadFilesModal({ open, onClose, user, setUser }: Uploa
 				newUser = { ...res.user };
 				setUser(newUser);
 			}
-
-			setLoadingMap(prev => {
-				const newMap = new Map(prev);
-
-				newMap.set(`${file.name}-${fileIndex}`, { loading: false, done: true, error: false });
-
-				return newMap;
-			});
 		}
 
 		setTimeout(() => {
@@ -153,7 +145,7 @@ export default function UploadFilesModal({ open, onClose, user, setUser }: Uploa
 					</TabsContent>
 					<TabsContent value='loading'>
 						<div className="space-y-4 py-4">
-							{Array.from(loadingMap.entries()).map(([key, status]) => (
+							{Array.from(loadingMap.entries()).sort((a, b) => Number(a[0].split('-')[1]) - Number(b[0].split('-')[1])).map(([key, status]) => (
 								<div
 									key={key}
 									className={`flex items-center justify-between gap-4 p-4 border rounded-lg transition-colors ${status.error ? 'border-red-200 bg-red-50' :

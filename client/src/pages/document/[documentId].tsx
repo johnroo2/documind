@@ -89,7 +89,7 @@ export default function DocumentView({ user }: BaseProps) {
 						<div className="flex flex-col">
 							<h1 className="font-semibold text-lg">{document.name}</h1>
 							<p className="font-light text-xs">
-								{new Date(document.createdAt).toLocaleString()}
+								{new Date(document.createdAt).toLocaleString('en-US')}
 							</p>
 						</div>
 					</div>

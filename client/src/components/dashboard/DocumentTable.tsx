@@ -135,7 +135,7 @@ export default function DocumentTable({ documents, setUser }: DocumentTableProps
 							filteredDocuments.map((document) => (
 								<TableRow key={document.id}>
 									<TableCell className="w-2/5"><a href={`/document/${document.id}`}>{document.name}</a></TableCell>
-									<TableCell className="w-1/5 text-center">{new Date(document.createdAt).toLocaleString()}</TableCell>
+									<TableCell className="w-1/5 text-center">{new Date(document.createdAt).toLocaleString('en-US')}</TableCell>
 									<TableCell className="w-1/5 text-center">{document.public ? 'Public' : 'Private'}</TableCell>
 									<TableCell className="w-1/5 text-center">
 										<DropdownMenu>

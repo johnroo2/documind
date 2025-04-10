@@ -1,29 +1,44 @@
-import { File, Fingerprint, Info, Logs, Settings } from 'lucide-react';
+import { File, Fingerprint, Info, Logs, Settings, Users } from 'lucide-react';
 import { useMemo } from 'react';
 
 import { PROJECT_NAME } from '@/lib/constants';
-import { SidebarNode, SidebarNodeType } from '@/types/general';
+import { PERMISSION, SidebarNode, SidebarNodeType } from '@/types/general';
 import { PopulatedDocument, PopulatedUser } from '@/types/populations';
 
 export default function useSidebarProps(user: PopulatedUser | undefined, disclaimerCallback: () => void) {
-	const mainProps = useMemo<SidebarNode[]>(() => [
-		{
-			name: 'Dashboard',
-			props: {
-				type: SidebarNodeType.Link,
-				icon: <Logs size={16} />,
-				link: '/dashboard',
+	const mainProps = useMemo<SidebarNode[]>(() => {
+		const props: SidebarNode[] = [
+			{
+				name: 'Dashboard',
+				props: {
+					type: SidebarNodeType.Link,
+					icon: <Logs size={16} />,
+					link: '/dashboard',
+				}
+			},
+			{
+				name: 'Settings',
+				props: {
+					type: SidebarNodeType.Link,
+					icon: <Settings size={16} />,
+					link: '/settings',
+				}
 			}
-		},
-		{
-			name: 'Settings',
-			props: {
-				type: SidebarNodeType.Link,
-				icon: <Settings size={16} />,
-				link: '/settings',
-			}
+		];
+
+		if (user?.permissions === PERMISSION.Admin) {
+			props.splice(1, 0, {
+				name: 'Users',
+				props: {
+					type: SidebarNodeType.Link,
+					icon: <Users size={16} />,
+					link: '/users',
+				}
+			});
 		}
-	], []);
+
+		return props;
+	}, [user]);
 
 	const adminProps = useMemo<SidebarNode>(() => ({
 		name: 'Admin',

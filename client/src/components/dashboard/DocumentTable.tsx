@@ -160,6 +160,7 @@ export default function DocumentTable({ documents, setUser }: DocumentTableProps
 												<DropdownMenuItem
 													className='flex items-center gap-2'
 													onClick={() => handleShare(document)}
+													disabled={!document.public}
 												>
 													<Send size={16} />
 													Share

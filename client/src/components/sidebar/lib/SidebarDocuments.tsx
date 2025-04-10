@@ -7,18 +7,18 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu } from '@/components/ui/sidebar';
 import { SidebarNode, SidebarNodeParentProps, SidebarNodeType } from '@/types/general';
 
-interface SidebarChatsProps {
-    info: SidebarNode
+interface SidebarDocumentsProps {
+	info: SidebarNode
 }
 
-export default function SidebarChats({ info }: SidebarChatsProps){
+export default function SidebarDocuments({ info }: SidebarDocumentsProps) {
 	const router = useRouter();
 
-	if ( info.props.type === SidebarNodeType.Button ) {
+	if (info.props.type === SidebarNodeType.Button) {
 		return (
 			<SidebarMenu>
 				<div className='grid h-8 px-2 opacity-25 pointer-events-none'>
-					<SidebarChildNode node={ info } router={router}/>
+					<SidebarChildNode node={info} router={router} />
 				</div>
 			</SidebarMenu>
 		);
@@ -47,7 +47,7 @@ export default function SidebarChats({ info }: SidebarChatsProps){
 				<CollapsibleContent>
 					<SidebarGroupContent>
 						<SidebarMenu className='pl-2'>
-							{(info.props as SidebarNodeParentProps).children.map((child) => <SidebarChildNode node={child} router={router}/>)}
+							{(info.props as SidebarNodeParentProps).children.map((child) => <SidebarChildNode node={child} router={router} />)}
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</CollapsibleContent>

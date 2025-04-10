@@ -88,7 +88,7 @@ export default async function edit_document(
 			},
 			data: {
 				name: fileName,
-				public: filePublic
+				public: filePublic === VISIBILITY.PUBLIC ? true : false
 			}
 		});
 

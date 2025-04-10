@@ -5,7 +5,4 @@ export const MAX_PASSWORD_LENGTH = 30;
 export const MIN_USERNAME_LENGTH = 4;
 export const MAX_USERNAME_LENGTH = 20;
 
-export const MAX_CHAT_LENGTH = 25;
-export const CHAT_HISTORY_LENGTH = 10;
-
 export const MAX_MESSAGE_LENGTH = 250;

@@ -10,8 +10,13 @@ export interface ParsingBlock {
     block_text: string
 }
 
+export interface ParsingPage {
+    title: string,
+    body: string[],
+}
+
 export type PopulatedDocumentData = Omit<DocumentData, 'text'> & {
-    text: ParsingBlock[];
+    pages: ParsingPage[];
 }
 
 export type PopulatedDocument = Document & {

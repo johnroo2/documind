@@ -5,7 +5,7 @@ import { PROJECT_NAME } from '@/lib/constants';
 import { SidebarNode, SidebarNodeType } from '@/types/general';
 import { PopulatedDocument, PopulatedUser } from '@/types/populations';
 
-export default function useSidebarProps(user: PopulatedUser | undefined, disclaimerCallback: () => void){
+export default function useSidebarProps(user: PopulatedUser | undefined, disclaimerCallback: () => void) {
 	const mainProps = useMemo<SidebarNode[]>(() => [
 		{
 			name: 'Dashboard',
@@ -46,7 +46,7 @@ export default function useSidebarProps(user: PopulatedUser | undefined, disclai
 		name: 'Info',
 		props: {
 			type: SidebarNodeType.Parent,
-			icon:  <Info size={16} />,
+			icon: <Info size={16} />,
 			children: [
 				{
 					name: `About ${PROJECT_NAME}`,
@@ -73,14 +73,14 @@ export default function useSidebarProps(user: PopulatedUser | undefined, disclai
 		},
 	}), [disclaimerCallback]);
 
-	const sortedChats: PopulatedDocument[] = useMemo(() => (user?.documents || []).sort((a, b) => Date.parse(a.createdAt as string) - Date.parse(b.createdAt as string)), [user]);
+	const sortedDocuments: PopulatedDocument[] = useMemo(() => (user?.documents || []).sort((a, b) => Date.parse(a.createdAt as string) - Date.parse(b.createdAt as string)), [user]);
 
 	const userProps = useMemo<SidebarNode>(() => ({
 		name: 'Documents',
-		props: sortedChats.length > 0 ?  {
+		props: sortedDocuments.length > 0 ? {
 			type: SidebarNodeType.Parent,
 			icon: <File size={16} />,
-			children: sortedChats.map(document => ({
+			children: sortedDocuments.map(document => ({
 				name: document.name,
 				props: {
 					type: SidebarNodeType.Link,
@@ -90,9 +90,9 @@ export default function useSidebarProps(user: PopulatedUser | undefined, disclai
 		} : {
 			type: SidebarNodeType.Button,
 			icon: <File size={16} />,
-			onClick: () => {}
+			onClick: () => { }
 		}
-	}), [sortedChats]);
+	}), [sortedDocuments]);
 
 	return { mainProps, adminProps, infoProps, userProps };
 }

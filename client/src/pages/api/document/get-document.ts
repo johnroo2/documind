@@ -13,7 +13,7 @@ export default async function get_document(
 	req: NextApiRequest,
 	res: NextApiResponse<GetDocumentResponse | APIError>,
 ) {
-	serverErrorHandler('POST', req, res, async() => {
+	serverErrorHandler('GET', req, res, async() => {
 		const token = verifyToken(req.headers.authorization, res);
                         
 		if (!token){
@@ -34,7 +34,7 @@ export default async function get_document(
 			return;
 		}
 
-		const { documentId } = req.body;
+		const documentId = req.query.id as string;
 
 		if (!documentId){
 			res.status(API_STATUS.BAD_REQUEST).json({

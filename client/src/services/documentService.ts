@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 
 import { Service } from '@/lib/serviceRoot';
-import { APIError } from '@/types/general';
+import { APIError, VISIBILITY } from '@/types/general';
 import { DeleteDocumentResponse, EditDocumentResponse, GetDocumentResponse, UploadDocumentResponse } from '@/types/server';
 
 class DocumentService extends Service {
@@ -27,10 +27,10 @@ class DocumentService extends Service {
 	 * Edits a document's metadata
 	 * @param {string} documentId The document's id
 	 * @param {string} fileName New name for the document
-	 * @param {boolean} filePublic New visibility for the document
+	 * @param {VISIBILITY} filePublic New visibility for the document
 	 * @returns {Promise<EditDocumentResponse | AxiosError<APIError>>} The updated user and document
 	 */
-	async editDocument(documentId: string, fileName: string, filePublic: boolean): Promise<EditDocumentResponse | AxiosError<APIError>> {
+	async editDocument(documentId: string, fileName: string, filePublic: VISIBILITY): Promise<EditDocumentResponse | AxiosError<APIError>> {
 		return this.safeAxiosApply<EditDocumentResponse>(() =>
 			this.instance.post('/api/document/edit-document', {
 				documentId,
@@ -55,18 +55,18 @@ class DocumentService extends Service {
 	/**
 	 * Uploads a new document
 	 * @param {string} fileName Name for the document
-	 * @param {boolean} filePublic Visibility for the document
+	 * @param {VISIBILITY} filePublic Visibility for the document
 	 * @param {File} file The file to upload
 	 * @returns {Promise<UploadDocumentResponse | AxiosError<APIError>>} The updated user and new document
 	 */
-	async uploadDocument(fileName: string, filePublic: boolean, file: File): Promise<UploadDocumentResponse | AxiosError<APIError>> {
+	async uploadDocument(fileName: string, filePublic: VISIBILITY, file: File): Promise<UploadDocumentResponse | AxiosError<APIError>> {
+		const formData = new FormData();
+		formData.append('fileName', fileName);
+		formData.append('filePublic', filePublic.toString());
+		formData.append('file', file);
+
 		return this.safeAxiosApply<UploadDocumentResponse>(() =>
-			this.instance.post('/api/document/upload-document', {
-				fileName,
-				filePublic,
-				file
-			},
-			this.applyHeaders())
+			this.instance.post('/api/document/upload-document', formData, this.applyHeaders())
 		)();
 	}
 }

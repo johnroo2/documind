@@ -20,7 +20,7 @@ model User {
   settingsId  String     @unique
   permissions Permission
   createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  updatedAt   DateTime   @updatedAt 
 }
 
 model Settings {
@@ -35,7 +35,6 @@ model Document {
   updatedAt DateTime @updatedAt
   userId    String
   public    Boolean  @default(false)
-  data      DocumentData @relation(fields: [dataId], references: [id])
   dataId    String @unique
 }
 
@@ -43,5 +42,4 @@ model DocumentData {
   id        String   @id @default(uuid())
   documentId String
   text      String
-  Document  Document?
 }

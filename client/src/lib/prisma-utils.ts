@@ -1,6 +1,8 @@
 import { Prisma, PrismaClient } from '@prisma/client';
 
-import { ParsingBlock, PopulatedDocument, PopulatedUser } from '@/types/populations';
+import parseBlocks from './parser';
+
+import { PopulatedDocument, PopulatedUser } from '@/types/populations';
 
 //these functions are for population operations, add your own if you want
 //unfortunately we use sqlite and have to do this
@@ -47,9 +49,7 @@ export async function getPopulatedDocument(prisma: PrismaClient, query: Prisma.D
 		where: { documentId: document.id }
 	});
 
-	const parsedText: ParsingBlock[] = JSON.parse(data.text);
-
-	const res: PopulatedDocument = {...document, data: {...data, text: parsedText}};
+	const res: PopulatedDocument = {...document, data: {...data, pages: parseBlocks(data.text)}};
 
 	return res;
 }
@@ -109,3 +109,4 @@ export async function deleteAllDocuments(prisma: PrismaClient, query: Prisma.Doc
 		where: query
 	});
 }
+

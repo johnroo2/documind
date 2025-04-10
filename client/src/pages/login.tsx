@@ -21,8 +21,6 @@ import { BaseProps } from '@/pages/_app';
 import userService from '@/services/userService';
 import { BreadcrumbType, LS_KEYS } from '@/types/general';
 
-
-
 export default function Login({ setUser }: BaseProps) {
 	const router = useRouter();
 
@@ -69,7 +67,7 @@ export default function Login({ setUser }: BaseProps) {
 								{PROJECT_NAME} Login
 							</CardTitle>
 							<CardDescription>
-                Put a description here
+								Put a description here
 							</CardDescription>
 						</CardHeader>
 						<CardContent>
@@ -86,8 +84,8 @@ export default function Login({ setUser }: BaseProps) {
 											value={username}
 											onChange={e => {
 												const { value } = e.currentTarget;
-                      
-												if (value.length > MAX_USERNAME_LENGTH){
+
+												if (value.length > MAX_USERNAME_LENGTH) {
 													setUsername(value.slice(0, MAX_USERNAME_LENGTH));
 												} else {
 													setUsername(value);
@@ -101,24 +99,24 @@ export default function Login({ setUser }: BaseProps) {
 											<Label htmlFor="password">Password</Label>
 										</div>
 										<PasswordInput
-											id="password" 
+											id="password"
 											value={password}
 											onChange={e => {
 												const { value } = e.currentTarget;
-                      
-												if (value.length > MAX_PASSWORD_LENGTH){
+
+												if (value.length > MAX_PASSWORD_LENGTH) {
 													setPassword(value.slice(0, MAX_PASSWORD_LENGTH));
 												} else {
 													setPassword(value);
 												}
 											}}
-											required 
+											required
 										/>
 										<Link
 											href="/change-password"
 											className="ml-auto text-sm underline-offset-4 hover:underline"
 										>
-                      Forgot your password?
+											Forgot your password?
 										</Link>
 									</div>
 									<div className='flex justify-center mt-2'>
@@ -126,15 +124,15 @@ export default function Login({ setUser }: BaseProps) {
 											e.preventDefault();
 											onSubmit();
 										}}>
-                      Login
+											Login
 										</Button>
 									</div>
 								</div>
 							</form>
 							<div className="text-center text-sm mt-2">
-                Don&apos;t have an account?{' '}
+								Don&apos;t have an account?{' '}
 								<Link href="/signup" className="underline underline-offset-4">
-                  Sign up
+									Sign up
 								</Link>
 							</div>
 						</CardContent>
@@ -145,4 +143,4 @@ export default function Login({ setUser }: BaseProps) {
 	);
 }
 
-Login.breadcrumb = JSON.stringify([{name: 'Login', isLink: true, link: '/login'}] as BreadcrumbType[]);
+Login.breadcrumb = JSON.stringify([{ name: 'Login', isLink: true, link: '/login' }] as BreadcrumbType[]);

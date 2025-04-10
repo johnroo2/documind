@@ -1,6 +1,7 @@
-import { ArrowRight, ChevronDown, Edit, Ellipsis, Globe, Lock, Trash, Users } from 'lucide-react';
+import { ArrowRight, ChevronDown, Edit, Ellipsis, Globe, Lock, Send, Trash, Users } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
+import { toast } from 'sonner';
 
 import DocumentTableEmpty from './DocumentTableEmpty';
 
@@ -50,6 +51,12 @@ export default function DocumentTable({ documents, setUser }: DocumentTableProps
 		setEditFocus(document);
 	};
 
+	const handleShare = (document: PopulatedDocument) => {
+		const shareUrl = `${window.location.origin}/shared-document/${document.id}`;
+		navigator.clipboard.writeText(shareUrl);
+		toast.success('Link copied to clipboard!');
+	};
+
 	const resetFilters = () => {
 		setSortOrder('asc');
 		setVisibilityFilter('all');
@@ -74,7 +81,7 @@ export default function DocumentTable({ documents, setUser }: DocumentTableProps
 							<TableHead className="w-2/5">Document Name</TableHead>
 							<TableHead className="w-1/5 text-center">
 								<button onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')} className="flex items-center justify-center w-full">
-									Created
+									Upload Date
 									<ChevronDown
 										className={`ml-1 transition-transform duration-300 ${sortOrder === 'asc' ? 'rotate-180' : ''}`}
 										size={16}
@@ -149,6 +156,13 @@ export default function DocumentTable({ documents, setUser }: DocumentTableProps
 												>
 													<ArrowRight size={16} />
 													View
+												</DropdownMenuItem>
+												<DropdownMenuItem
+													className='flex items-center gap-2'
+													onClick={() => handleShare(document)}
+												>
+													<Send size={16} />
+													Share
 												</DropdownMenuItem>
 												<DropdownMenuItem
 													disabled={deleteFocus ? true : false}

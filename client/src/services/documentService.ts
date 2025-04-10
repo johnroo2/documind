@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 
 import { Service } from '@/lib/serviceRoot';
 import { APIError, VISIBILITY } from '@/types/general';
-import { DeleteDocumentResponse, EditDocumentResponse, GetDocumentResponse, UploadDocumentResponse } from '@/types/server';
+import { DeleteDocumentResponse, EditDocumentResponse, GetDocumentResponse, GetPublicDocumentsResponse, GetSharedDocumentResponse, UploadDocumentResponse } from '@/types/server';
 
 class DocumentService extends Service {
 	constructor(url: string) {
@@ -49,6 +49,27 @@ class DocumentService extends Service {
 	async getDocument(documentId: string): Promise<GetDocumentResponse | AxiosError<APIError>> {
 		return this.safeAxiosApply<GetDocumentResponse>(() =>
 			this.instance.get(`/api/document/get-document?id=${documentId}`, this.applyHeaders())
+		)();
+	}
+
+	/**
+	 * Gets a shared document by id
+	 * @param {string} documentId The document's id
+	 * @returns {Promise<GetSharedDocumentResponse | AxiosError<APIError>>} The document if found
+	 */
+	async getSharedDocument(documentId: string): Promise<GetSharedDocumentResponse | AxiosError<APIError>> {
+		return this.safeAxiosApply<GetSharedDocumentResponse>(() =>
+			this.instance.get(`/api/document/get-shared-document?id=${documentId}`, this.applyHeaders())
+		)();
+	}
+
+	/**
+	 * Gets all public documents
+	 * @returns {Promise<GetPublicDocumentsResponse | AxiosError<APIError>>} List of public documents
+	 */
+	async getPublicDocuments(): Promise<GetPublicDocumentsResponse | AxiosError<APIError>> {
+		return this.safeAxiosApply<GetPublicDocumentsResponse>(() =>
+			this.instance.get('/api/document/get-public', this.applyHeaders())
 		)();
 	}
 

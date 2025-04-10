@@ -16,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
+import { MAX_USERNAME_LENGTH } from '@/lib/constants';
 import userService from '@/services/userService';
 import { PERMISSION } from '@/types/general';
 import { PopulatedUser } from '@/types/populations';
@@ -53,6 +54,13 @@ export default function EditUserModal({ user, focus, open, onClose, setUsers, se
 
 	const handleSubmit = async () => {
 		if (!focus) return;
+
+		if (!username) {
+			toast.error('Missing required fields', {
+				description: 'Username is required'
+			});
+			return;
+		}
 
 		setLoading(true);
 
@@ -118,7 +126,15 @@ export default function EditUserModal({ user, focus, open, onClose, setUsers, se
 							<Input
 								id="username"
 								value={username}
-								onChange={(e) => setUsername(e.target.value)}
+								onChange={(e) => {
+									const { value } = e.currentTarget;
+
+									if (value.length > MAX_USERNAME_LENGTH) {
+										setUsername(value.slice(0, MAX_USERNAME_LENGTH));
+									} else {
+										setUsername(value);
+									}
+								}}
 								className="col-span-3"
 							/>
 						</div>

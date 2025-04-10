@@ -2,8 +2,8 @@ import { User } from '@prisma/client';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-const public_routes = ['/login', '/signup'];
-const private_routes = ['/document', '/dashboard', '/settings', '/manage-users'];
+const public_routes = ['/login', '/signup', '/change-password', '/admin-signup'];
+const private_routes = ['/document', '/dashboard', '/settings', '/users', '/browse', '/changelog', '/about'];
 
 const default_public_route = '/login';
 const default_private_route = '/dashboard';

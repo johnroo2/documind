@@ -116,7 +116,8 @@ export default async function upload_document(
 					name: fileName,
 					public: filePublic === VISIBILITY.PUBLIC ? true : false,
 					userId: user.id,
-					dataId: documentData.id
+					dataId: documentData.id,
+					creator: user.username
 				}
 			});
 

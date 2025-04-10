@@ -19,7 +19,7 @@ import documentService from '@/services/documentService';
 import { BreadcrumbType } from '@/types/general';
 import { PopulatedDocument } from '@/types/populations';
 
-export default function DocumentView({ user }: BaseProps) {
+export default function SharedDocumentView({ user }: BaseProps) {
 	const params = useParams();
 	const router = useRouter();
 	const documentId = params?.documentId as string;
@@ -41,7 +41,7 @@ export default function DocumentView({ user }: BaseProps) {
 		}
 
 		const fetchData = async () => {
-			const res = await documentService.getDocument(documentId);
+			const res = await documentService.getSharedDocument(documentId);
 
 			if (res instanceof AxiosError) {
 				toast.error(`Could not fetch document with id: ${documentId}`, {
@@ -151,6 +151,6 @@ export default function DocumentView({ user }: BaseProps) {
 	);
 }
 
-DocumentView.breadcrumb = JSON.stringify([
-	{ name: 'Documents', isLink: false },
+SharedDocumentView.breadcrumb = JSON.stringify([
+	{ name: 'Shared Document', isLink: false },
 ] as BreadcrumbType[]);

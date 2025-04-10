@@ -36,6 +36,14 @@ export type UploadFileResponse = {
     result: ParsingBlock[]
 }
 
+export type GetPublicDocumentsResponse = {
+    documents: PopulatedDocument[]
+}
+
+export type GetSharedDocumentResponse = {
+    document: PopulatedDocument
+}
+
 export type GetDocumentResponse = {
     user: PopulatedUser,
     document: PopulatedDocument

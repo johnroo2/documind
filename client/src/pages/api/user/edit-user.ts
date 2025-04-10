@@ -105,8 +105,16 @@ export default async function edit_user(
 			}
 		});
 
-		const users = await prisma.user.findMany();
+		await prisma.document.updateMany({
+			where: {
+				creator: user.username
+			},
+			data: {
+				creator: username
+			}
+		});
 
+		const users = await prisma.user.findMany();
 		res.status(API_STATUS.OK).json({ users, self: user.id === id});
 	});
 }

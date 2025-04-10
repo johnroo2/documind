@@ -6,6 +6,14 @@ import { ScaleLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import {
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationLink,
+	PaginationPrevious,
+	PaginationNext,
+} from '@/components/ui/pagination';
 import { BaseProps } from '@/pages/_app';
 import documentService from '@/services/documentService';
 import { BreadcrumbType } from '@/types/general';
@@ -18,11 +26,12 @@ export default function DocumentView({ user }: BaseProps) {
 
 	const [document, setDocument] = useState<PopulatedDocument>();
 	const [loading, setLoading] = useState(true);
+	const [currentPage, setCurrentPage] = useState(0);
 
 	const sendHome = useCallback(() => {
 		router.push(user ? '/dashboard' : '/');
 		toast.warning('Page not found', {
-			description: 'Sending you back home...'
+			description: 'Sending you back home...',
 		});
 	}, [user, router]);
 
@@ -36,7 +45,9 @@ export default function DocumentView({ user }: BaseProps) {
 
 			if (res instanceof AxiosError) {
 				toast.error(`Could not fetch document with id: ${documentId}`, {
-					description: res?.response?.data?.message || 'An unexpected error occured while attempting to fetch document'
+					description:
+						res?.response?.data?.message ||
+						'An unexpected error occured while attempting to fetch document',
 				});
 				sendHome();
 			} else {
@@ -48,10 +59,16 @@ export default function DocumentView({ user }: BaseProps) {
 		fetchData();
 	}, [sendHome, documentId]);
 
+	const handlePageChange = (pageIndex: number) => {
+		setCurrentPage(pageIndex);
+	};
+
 	return (
-		<div className='relative h-full'>
-			<div className={`flex flex-col items-center justify-center transition-opacity duration-500 
-				absolute inset-0 gap-5 ${loading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} bg-white`}>
+		<div className="relative h-full overflow-y-auto">
+			<div
+				className={`flex flex-col items-center justify-center transition-opacity duration-500 
+				absolute inset-0 gap-5 ${loading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} bg-white`}
+			>
 				<ScaleLoader />
 				<div className="flex items-end gap-1.5">
 					<p className="text-foreground">Loading document</p>
@@ -64,37 +81,76 @@ export default function DocumentView({ user }: BaseProps) {
 			</div>
 
 			{document && (
-				<div className='flex flex-col gap-4 p-6'>
-					<div className='flex flex-row items-center gap-3'>
-						<div className='border border-primary bg-primary/5 flex items-center justify-center p-2 rounded-full'>
+				<div className="grid grid-rows-[auto_1fr_auto] h-full gap-2 p-6 overflow-y-auto">
+					<div className="flex flex-row items-center gap-3">
+						<div className="border border-primary bg-primary/5 flex items-center justify-center p-2 rounded-full">
 							<BookText size={20} />
 						</div>
-						<div className='flex flex-col'>
-							<h1 className='font-semibold text-lg'>{document.name}</h1>
-							<p className='font-light text-xs'>{new Date(document.createdAt).toLocaleString()}</p>
+						<div className="flex flex-col">
+							<h1 className="font-semibold text-lg">{document.name}</h1>
+							<p className="font-light text-xs">
+								{new Date(document.createdAt).toLocaleString()}
+							</p>
 						</div>
 					</div>
-					<div className="flex flex-row flex-wrap gap-3">
-						{document.data.pages.map((page, index) => (
-							<Card key={index} className="w-full md:basis-[calc(33%_-_1.5rem)] !p-2">
-								<CardHeader className="flex flex-row items-center gap-2 !py-2">
-									<FileSpreadsheet size={18} />
-									<h2 className="font-semibold">{page.title}</h2>
-								</CardHeader>
-								<CardContent className='!pb-2'>
-									<div className="space-y-1">
-										{page.body.map((text, i) => (
-											<p key={i} className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">{text}</p>
-										))}
-									</div>
-								</CardContent>
-							</Card>
-						))}
-					</div>
+					<Card
+						key={currentPage}
+						className="w-full !p-2 !overflow-y-auto"
+					>
+						<CardHeader className="flex flex-row items-center gap-2 !py-2">
+							<FileSpreadsheet size={18} />
+							<h2 className="font-semibold">{document.data.pages[currentPage].title}</h2>
+						</CardHeader>
+						<CardContent className="!pb-2">
+							<div className="space-y-1">
+								{document.data.pages[currentPage].body.map((text, i) => (
+									<p
+										key={i}
+										className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap"
+									>
+										{text}
+									</p>
+								))}
+							</div>
+						</CardContent>
+					</Card>
+					<Pagination className="mt-4">
+						<PaginationContent>
+							<PaginationPrevious
+								onClick={() =>
+									handlePageChange(
+										Math.max(0, currentPage - 1)
+									)
+								}
+							/>
+							{document.data.pages.map((_, index) => (
+								<PaginationItem key={index}>
+									<PaginationLink
+										isActive={index === currentPage}
+										onClick={() => handlePageChange(index)}
+									>
+										{index + 1}
+									</PaginationLink>
+								</PaginationItem>
+							))}
+							<PaginationNext
+								onClick={() =>
+									handlePageChange(
+										Math.min(
+											document.data.pages.length - 1,
+											currentPage + 1
+										)
+									)
+								}
+							/>
+						</PaginationContent>
+					</Pagination>
 				</div>
 			)}
 		</div>
 	);
 }
 
-DocumentView.breadcrumb = JSON.stringify([{ name: 'Documents', isLink: false }] as BreadcrumbType[]);
+DocumentView.breadcrumb = JSON.stringify([
+	{ name: 'Documents', isLink: false },
+] as BreadcrumbType[]);

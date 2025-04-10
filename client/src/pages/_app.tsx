@@ -17,11 +17,11 @@ import { BreadcrumbType } from '@/types/general';
 import { PopulatedUser } from '@/types/populations';
 
 export type BaseProps = {
-  user: PopulatedUser | undefined,
-  setUser: Dispatch<SetStateAction<PopulatedUser | undefined>>
+	user: PopulatedUser | undefined,
+	setUser: Dispatch<SetStateAction<PopulatedUser | undefined>>
 }
 
-export default function App({ Component, pageProps }: AppProps & { Component: NextComponentType<NextPageContext, unknown, unknown> & { breadcrumb?: string}}) {
+export default function App({ Component, pageProps }: AppProps & { Component: NextComponentType<NextPageContext, unknown, unknown> & { breadcrumb?: string } }) {
 	const { user, setUser, userLoading } = useCurrentUser();
 	useUserRouter(user, userLoading);
 
@@ -33,10 +33,10 @@ export default function App({ Component, pageProps }: AppProps & { Component: Ne
 
 	const crumbs: BreadcrumbType[] = Component?.breadcrumb ? JSON.parse(Component.breadcrumb) : [];
 
-	return  (
+	return (
 		<>
 			<SidebarProvider className="grid grid-cols-[auto_1fr] w-screen h-screen overflow-y-auto overflow-x-hidden">
-				{(user || userLoading) ? <AppSidebar {...customProps} width={250}/> : <div />}
+				{(user || userLoading) ? <AppSidebar {...customProps} width={250} /> : <div />}
 				<main className={`${(user || userLoading) && 'px-2 md:px-4'} grid grid-rows-[auto_1fr] overflow-y-auto w-full`}>
 					{(user || userLoading) ?
 						<header className="flex h-12 shrink-0 items-center">
@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps & { Component: Ne
 												</BreadcrumbItem>
 												<BreadcrumbSeparator className="max-md:hidden block" />
 												{crumbs.map((crumb, key, arr) => {
-													if (crumb.isLink){
+													if (crumb.isLink) {
 														return (
 															<>
 																<BreadcrumbItem key={key} className={key < arr.length - 1 ? 'max-md:hidden block' : 'block'} >
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps & { Component: Ne
 																		{crumb.name}
 																	</BreadcrumbLink>
 																</BreadcrumbItem>
-																{key < arr.length - 1 && <BreadcrumbSeparator className="max-md:hidden block"  />}
+																{key < arr.length - 1 && <BreadcrumbSeparator className="max-md:hidden block" />}
 															</>
 														);
 													} else {
@@ -83,7 +83,7 @@ export default function App({ Component, pageProps }: AppProps & { Component: Ne
 									</>
 								)}
 							</div>
-						</header> 
+						</header>
 						:
 						<div />
 					}
@@ -92,7 +92,7 @@ export default function App({ Component, pageProps }: AppProps & { Component: Ne
 					</div>
 				</main>
 			</SidebarProvider>
-			<Toaster richColors closeButton/>
+			<Toaster richColors closeButton />
 		</>
 	);
 }

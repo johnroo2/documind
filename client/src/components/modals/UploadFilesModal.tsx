@@ -136,7 +136,7 @@ export default function UploadFilesModal({ open, onClose, user, setUser }: Uploa
 								Close
 							</Button>
 							<Button
-								disabled={loading}
+								disabled={loading || files.length === 0}
 								onClick={handleUpload}
 							>
 								Process Files

@@ -11,7 +11,6 @@ import { API_STATUS, APIError, VISIBILITY } from '@/types/general';
 import { UploadDocumentResponse } from '@/types/server';
 
 const prisma = new PrismaClient();
-const flaskClient = new FlaskClient(process.env.FLASK_SERVER_URL as string, process.env.FLASK_SERVER_API_KEY as string);
 
 export const config = {
 	api: {
@@ -25,6 +24,7 @@ export default async function upload_document(
 ) {
 	serverErrorHandler('POST', req, res, async() => {
 		const token = verifyToken(req.headers.authorization, res);
+		const flaskClient = new FlaskClient(process.env.FLASK_SERVER_URL as string, process.env.FLASK_SERVER_API_KEY as string);
                         
 		if (!token){
 			res.status(API_STATUS.BAD_REQUEST).json({

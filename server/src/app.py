@@ -42,7 +42,9 @@ def upload():
 
         analyze_result = document_analyzer.read_pdf(file_path)
         parsed_result = document_analyzer.process_text(analyze_result)
-
+        
+        #parsed_result = document_analyzer.generate_placeholder(file.filename)
+        
         if TEMP_FILES:
             os.remove(file_path)
 

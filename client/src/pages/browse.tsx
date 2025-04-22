@@ -33,13 +33,13 @@ export default function Browse() {
 				className={`flex flex-col items-center justify-center transition-opacity duration-500 
 				absolute inset-0 gap-5 ${loading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} bg-white z-[500]`}
 			>
-				<ScaleLoader />
+				<ScaleLoader color='#C41F3E' />
 				<div className="flex items-end gap-1.5">
 					<p className="text-foreground">Loading public documents</p>
 					<div id="loading-wave">
-						<span className="dot bg-foreground"></span>
-						<span className="dot bg-foreground"></span>
-						<span className="dot bg-foreground"></span>
+						<span className="dot bg-primary"></span>
+						<span className="dot bg-primary"></span>
+						<span className="dot bg-primary"></span>
 					</div>
 				</div>
 			</div>

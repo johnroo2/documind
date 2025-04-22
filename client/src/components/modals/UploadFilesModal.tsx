@@ -148,23 +148,21 @@ export default function UploadFilesModal({ open, onClose, user, setUser }: Uploa
 							{Array.from(loadingMap.entries()).sort((a, b) => Number(a[0].split('-')[1]) - Number(b[0].split('-')[1])).map(([key, status]) => (
 								<div
 									key={key}
-									className={`flex items-center justify-between gap-4 p-4 border rounded-lg transition-colors ${status.error ? 'border-red-200 bg-red-50' :
+									className={`grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 border rounded-lg transition-colors ${status.error ? 'border-red-200 bg-red-50' :
 										status.done ? 'border-green-200 bg-green-50' :
 											status.loading ? 'border-yellow-200 bg-yellow-50' : 'border-gray-200'}`}
 								>
-									<div className="flex items-center gap-3">
-										{status.loading ? (
-											<CircleDashed size={18} className="text-yellow-600 animate-spin" />
-										) : status.error ? (
-											<XCircle size={18} className="text-red-600" />
-										) : status.done ? (
-											<CheckCircle2 size={18} className="text-green-600" />
-										) : (
-											<CircleDashed size={18} className="text-gray-400" />
-										)}
-										<span className="text-sm font-medium">{key.split('-')[0]}</span>
-									</div>
-									<div className={`text-sm font-medium ${status.loading ? 'text-yellow-700' :
+									{status.loading ? (
+										<CircleDashed size={18} className="text-yellow-600 animate-spin" />
+									) : status.error ? (
+										<XCircle size={18} className="text-red-600" />
+									) : status.done ? (
+										<CheckCircle2 size={18} className="text-green-600" />
+									) : (
+										<CircleDashed size={18} className="text-gray-400" />
+									)}
+									<span className="text-sm font-medium">{key.split('-')[0]}</span>
+									<div className={`text-sm font-medium justify-self-end ${status.loading ? 'text-yellow-700' :
 										status.error ? 'text-red-700' :
 											status.done ? 'text-green-700' : 'text-gray-500'}`}>
 										{status.loading ? 'Loading...' :

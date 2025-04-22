@@ -40,7 +40,7 @@ export default function SidebarChildNode({ router, node }: SidebarChildNodeProps
 					isActive={router.asPath.startsWith(props.link)}
 				>
 					<a href={props.link} className="w-full">
-						<div className='flex items-center gap-2 w-full'>
+						<div className={`flex items-center gap-2 w-full ${router.asPath.startsWith(props.link) ? 'text-primary' : ''}`}>
 							{props?.icon && props.icon}
 							<p className='break-all'>{node.name}</p>
 						</div>

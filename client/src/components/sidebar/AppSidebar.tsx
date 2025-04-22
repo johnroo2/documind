@@ -62,7 +62,7 @@ export function AppSidebar({ user, setUser, ...props }: BaseProps & React.Compon
 						<SidebarMenuItem>
 							<SidebarMenuButton size="lg" asChild>
 								<Link href="/dashboard">
-									<div className="flex aspect-square size-8 items-center justify-center rounded bg-sidebar-primary text-sidebar-primary-foreground">
+									<div className="flex aspect-square size-8 items-center justify-center rounded bg-primary text-sidebar-primary-foreground">
 										<BrainCircuit className="size-4" />
 									</div>
 									<div className="grid flex-1 text-left text-sm leading-tight">
